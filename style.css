@@ -1,0 +1,157 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ================= VARIABLES ================= */
+:root {
+  --bg: linear-gradient(135deg, #667eea, #764ba2);
+  --card-bg: rgba(255, 255, 255, 0.12);
+  --text: #ffffff;
+  --toggle-bg: rgba(255, 255, 255, 0.25);
+  --circle: #ffffff;
+}
+
+body.dark {
+  --bg: linear-gradient(135deg, #0f0f0f, #1c1c1c);
+  --card-bg: rgba(0, 0, 0, 0.35);
+  --text: #ffffff;
+  --toggle-bg: rgba(255, 255, 255, 0.08);
+  --circle: #111111;
+}
+
+/* ================= BODY ================= */
+body {
+  min-height: 100dvh; /* 🔥 mobile fix */
+  display: grid;
+  place-items: center;
+  background: var(--bg);
+  color: var(--text);
+  padding: clamp(12px, 4vw, 40px);
+  font-family: "Poppins", sans-serif;
+  transition: all 0.5s ease;
+  overflow-x: hidden;
+}
+
+/* ================= WRAPPER ================= */
+.wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+/* ================= CARD ================= */
+.card {
+  width: min(90%, 420px);
+  padding: clamp(20px, 5vw, 50px);
+  border-radius: clamp(16px, 3vw, 24px);
+  backdrop-filter: blur(20px);
+  background: var(--card-bg);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+  text-align: center;
+}
+
+/* ================= HEADING ================= */
+h1 {
+  font-size: clamp(1.4rem, 4vw, 2.2rem);
+  font-weight: 600;
+  margin-bottom: clamp(20px, 5vw, 40px);
+  letter-spacing: 0.5px;
+}
+
+/* ================= TOGGLE ================= */
+.toggle {
+  display: flex;
+  justify-content: center;
+}
+
+/* ================= SWITCH ================= */
+.switch {
+  width: clamp(60px, 10vw, 90px);
+  height: clamp(32px, 5vw, 50px);
+  border-radius: 999px;
+  background: var(--toggle-bg);
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+
+/* iOS ACTIVE BG */
+body.dark .switch {
+  background: linear-gradient(135deg, #4facfe, #00f2fe);
+}
+
+/* ================= CIRCLE ================= */
+.circle {
+  width: clamp(26px, 4vw, 42px);
+  height: clamp(26px, 4vw, 42px);
+  border-radius: 50%;
+  background: var(--circle);
+  position: absolute;
+  top: 50%;
+  left: 4px;
+  transform: translateY(-50%) translateX(0);
+  transition: transform 0.45s cubic-bezier(0.68, 1, 0.27, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 🔥 FIXED MOVE (NO CALC BUG) */
+body.dark .circle {
+  transform: translateY(-50%) translateX(calc(100%));
+}
+
+/* ================= ICON ================= */
+.icon {
+  position: absolute;
+  font-size: clamp(0.8rem, 2vw, 1.3rem);
+  transition: all 0.4s ease;
+}
+
+/* ☀️ LIGHT MODE */
+.sun {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.moon {
+  opacity: 0;
+  transform: scale(0.3);
+}
+
+/* 🌙 DARK MODE */
+body.dark .sun {
+  opacity: 0;
+  transform: scale(0.3);
+}
+
+body.dark .moon {
+  opacity: 1;
+  transform: scale(1);
+}
+
+#modeText {
+  margin-top: 20px;
+  font-size: clamp(1rem, 2.5vw, 1.3rem);
+  font-weight: 500;
+  opacity: 0.9;
+  transition: all 0.3s ease;
+  letter-spacing: 1px;
+  transform: translateY(5px);
+}
+
+/* optional glow effect */
+body.dark #modeText {
+  color: #00f2fe;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+/* ================= MOBILE POLISH ================= */
+@media (max-width: 400px) {
+  .card {
+    padding: 20px;
+  }
+}
