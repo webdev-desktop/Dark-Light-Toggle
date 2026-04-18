@@ -1,6 +1,6 @@
 # 🌗 Dark / Light Mode Toggle – Modern UI Switch
 
-🔗 **[Live Demo]**(https://mode.webdevzone.in)
+🔗 [Live Demo](https://mode.webdevzone.in)
 
 🚀 A modern, responsive Dark/Light mode toggle with smooth animations, glassmorphism UI, and persistent theme storage.
 Built to practice UI/UX design, CSS animations, and state management using JavaScript.
